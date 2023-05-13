@@ -1,0 +1,11 @@
+﻿
+
+
+//cria uma migration inicial
+Add-Migration InitialDB -Context SistemaServitecDBContex
+
+//update data base
+Update-Database -Context SistemaServitecDBContex
+
+//cria uma nova migration
+Add-Migration Vinculo -Context SistemaServitecDBContex
