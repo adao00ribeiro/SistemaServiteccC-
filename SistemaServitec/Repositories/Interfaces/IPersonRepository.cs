@@ -14,6 +14,7 @@ namespace SistemaServitec.Repositories.Interfaces
         Task<PersonModel> Update ( PersonModel Person , int id );
         Task<PersonModel> TakeTheLast( );
         Task<PersonModel> TakeTheFirst ( );
+        Task<List<PersonModel>> ListAll ( );
         Task<bool> Delete ( int id );
     }
 }

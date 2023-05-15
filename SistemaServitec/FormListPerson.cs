@@ -1,31 +1,28 @@
-﻿using SistemaServitec.Controllers;
+﻿using SistemaServitec.Data;
 using SistemaServitec.Interface;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using SistemaServitec.Models;
+using SistemaServitec.Repositories;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace SistemaServitec
 {
     public partial class FormListPerson : Form
     {
         IMyForm formpai;
-        ControllerPerson controllerPerson;
+        SistemaServitecDBContex contex;
+        PersonRepository repoPerson;
         public FormListPerson (  IMyForm _formpai)
         {
             InitializeComponent ( );
-            controllerPerson = new ControllerPerson ( );
+            contex = new SistemaServitecDBContex ( );
+            repoPerson = new PersonRepository ( contex );
             formpai = _formpai;
         }
 
         private void FormListPerson_Load ( object sender , EventArgs e )
         {
-            Task<DataTable> data =  controllerPerson.ListAllHandle ( );
+            Task<List < PersonModel >> data =  repoPerson.ListAll ( );
             data.Wait ( );
             dataGridView1.DataSource = data.Result;
         }
@@ -38,7 +35,7 @@ namespace SistemaServitec
 
             string idstring =  dv.SelectedRows[0].Cells[0].Value.ToString ( );
 
-            Task<DataTable> data =  controllerPerson.GetPersonByIdHandle ( int.Parse( idstring ) );
+            Task<PersonModel> data =  repoPerson.SearchById ( int.Parse( idstring ) );
 
             data.Wait ( );
 

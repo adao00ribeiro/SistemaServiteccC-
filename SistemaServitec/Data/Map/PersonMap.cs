@@ -16,7 +16,7 @@ namespace SistemaServitec.Data.Map
             builder.Property ( x => x.Municipio ).HasMaxLength ( 255 );
             builder.Property ( x => x.UF ).HasMaxLength ( 255 );
             builder.Property ( x => x.Pais ).HasMaxLength ( 255 );
-           
+            
         }
     }
 }

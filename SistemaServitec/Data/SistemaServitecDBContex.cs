@@ -11,6 +11,7 @@ namespace SistemaServitec.Data
         public DbSet<PersonModel> Persons { get; set; }
         public DbSet<AddressModel> Addresss { get; set; }
         public DbSet<IdentityModel> Identitys { get; set; }
+        public DbSet<LeaseContractModel> Contracts { get; set; }
         protected override void OnConfiguring ( DbContextOptionsBuilder optionsBuilder )
         {
             base.OnConfiguring ( optionsBuilder );
@@ -22,10 +23,11 @@ namespace SistemaServitec.Data
         }
         protected override void OnModelCreating ( ModelBuilder modelBuilder )
         {
+          
             modelBuilder.ApplyConfiguration (new PersonMap());
             modelBuilder.ApplyConfiguration (new AddressMap());
             modelBuilder.ApplyConfiguration (new IdentityMap());
-
+            modelBuilder.ApplyConfiguration ( new LeaseContractMap ( ) );
             base.OnModelCreating ( modelBuilder );
         }
     }

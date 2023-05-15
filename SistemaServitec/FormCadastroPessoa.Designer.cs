@@ -299,7 +299,8 @@
             this.comboBoxTipoEndereco.Items.AddRange(new object[] {
             "RUA",
             "AVENIDA",
-            "LOTE"});
+            "LOTE",
+            "\t"});
             this.comboBoxTipoEndereco.Location = new System.Drawing.Point(117, 9);
             this.comboBoxTipoEndereco.Name = "comboBoxTipoEndereco";
             this.comboBoxTipoEndereco.Size = new System.Drawing.Size(57, 23);
@@ -627,6 +628,7 @@
             this.button5.TabIndex = 6;
             this.button5.Text = "<";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -656,6 +658,7 @@
             this.button8.TabIndex = 6;
             this.button8.Text = ">";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // FormCadastroPessoa
             // 

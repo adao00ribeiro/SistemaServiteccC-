@@ -56,23 +56,23 @@ namespace SistemaServitec
             InitializeComponent ( );
             contex = new SistemaServitecDBContex ( );
             repoPerson = new PersonRepository ( contex );
-            Task<PersonModel> data = repoPerson.TakeTheLast ( );
-            data.Wait ( );
-            if (data.IsFaulted)
-            {
-                MessageBox.Show ( "NAO ASLDKALSDKASLD");
-            }
-            else
-            {
-                SetComponents ( data.Result );
-            }
-           
-
 
             DisableComponents ( this.Controls );
             DisableComponents ( tabPageIdentity.Controls );
             DisableComponents ( tabPageEndereco.Controls );
             DisableComponents ( tabPageInformacoesPessoais.Controls );
+            try
+            {
+                Task<PersonModel> data = repoPerson.TakeTheLast ( );
+                data.Wait ( );
+                SetComponents ( data.Result );
+            }
+            catch ( Exception error)
+            {
+
+                MessageBox.Show (error.Message );
+            }
+          
 
             //BUSCA NO BANCO 
 
@@ -104,6 +104,7 @@ namespace SistemaServitec
                 textBoxRgUf.Text = data.Identidade.UF;
                 textBoxRgData.Text = data.Identidade.Data;
                 //endereco
+             
                 comboBoxTipoEndereco.SelectedIndex = comboBoxTipoEndereco.FindString ( data.Endereco.Tipo);
                 textBoxendereco.Text = data.Endereco.Residencia;
                 textBoxendereconumero.Text = data.Endereco.Numero;
@@ -160,9 +161,19 @@ namespace SistemaServitec
         }
         private void buttonNovo_Click ( object sender , EventArgs e )
         {
-            Task<PersonModel> data = repoPerson.TakeTheLast ( );
-            data.Wait ( );
-            long codigotemp = data.Result.Id;
+            Task<PersonModel> data = null;
+            long codigotemp = 0;
+            try
+            {
+                data = repoPerson.TakeTheLast ( );
+                data.Wait ( );
+                codigotemp =  data.Result.Id;
+            }
+            catch ( Exception )
+            {
+               
+            }
+            
             if ( IsBtnNovo )
             {
                 EnableComponents ( this.Controls );
@@ -330,16 +341,30 @@ namespace SistemaServitec
 
         private void buttonExcluir_Click ( object sender , EventArgs e )
         {
-           Task<bool> result =  repoPerson.Delete ( int.Parse ( textBoxCodigo.Text ));
 
+           Task<bool> result =  repoPerson.Delete ( int.Parse ( textBoxCodigo.Text ));
+           result.Wait ( );
             if ( result .Result)
             {
-                MessageBox.Show ( "sadadasd");
+                MessageBox.Show ( "Excluido");
+           
+                try
+                {
+                    Task<PersonModel> data=repoPerson.TakeTheLast ( );
+                    data.Wait ( );
+                    SetComponents ( data.Result );
+                }
+                catch (Exception error)
+                {
+                    SetComponents ( new PersonModel() );
+                }
+              
             }
             else
             {
-                MessageBox.Show ( "aaaaaaaaaaaaa" );
+                MessageBox.Show ( "Error " );
             }
+
         }
 
         private void textBoxCodigo_KeyDown ( object sender , KeyEventArgs e )
@@ -366,6 +391,18 @@ namespace SistemaServitec
 
         }
 
-       
+        private void button8_Click ( object sender , EventArgs e )
+        {
+            Task<PersonModel> data =repoPerson.TakeTheLast ( );
+            data.Wait ( );
+            SetComponents ( data.Result );
+        }
+
+        private void button5_Click ( object sender , EventArgs e )
+        {
+            Task<PersonModel> data =repoPerson.TakeTheFirst ( );
+            data.Wait ( );
+            SetComponents ( data.Result );
+        }
     }
 }

@@ -1,13 +1,8 @@
-﻿using DocumentFormat.OpenXml.Office2010.Excel;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SistemaServitec.Data;
 using SistemaServitec.Models;
 using SistemaServitec.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SistemaServitec.Repositories
 {
@@ -28,7 +23,7 @@ namespace SistemaServitec.Repositories
 
         public async Task<PersonModel> SearchById ( int Id )
         {
-            return await DbContex.Persons.FirstOrDefaultAsync ( x => x.Id == Id );
+            return await DbContex.Persons.Include(x=>x.Endereco).Include ( x => x.Identidade ).FirstOrDefaultAsync ( x => x.Id == Id );
         }
 
         public async Task<PersonModel> Update ( PersonModel Person , int id )
@@ -61,12 +56,17 @@ namespace SistemaServitec.Repositories
 
         public async Task<PersonModel> TakeTheLast ( )
         {
-            return await DbContex.Persons.Include(x => x.Identidade).LastAsync ( );
+            return await DbContex.Persons.Include ( x => x.Endereco ).Include ( x => x.Identidade ).OrderByDescending ( x=>x.Id).Take(1).SingleAsync();
         }
 
         public async Task<PersonModel> TakeTheFirst ( )
         {
-            return await DbContex.Persons.FirstAsync ( );
+            return await DbContex.Persons.Include ( x => x.Endereco ).Include ( x => x.Identidade ).FirstAsync ( );
+        }
+
+        public async Task<List<PersonModel>> ListAll ( )
+        {
+            return await DbContex.Persons.ToListAsync ( );
         }
     }
 }

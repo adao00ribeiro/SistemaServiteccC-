@@ -18,5 +18,12 @@ namespace SistemaServitec.Models
         public  string? Pais { get; set; }
         public virtual IdentityModel? Identidade { get; set; }
         public virtual AddressModel? Endereco { get; set; }
+
+
+        public PersonModel ( )
+        {
+            Identidade = new IdentityModel ();
+            Endereco = new AddressModel ( );
+        }
     }
 }

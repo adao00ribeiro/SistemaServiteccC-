@@ -42,6 +42,7 @@
             this.mesclarPdfsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.converterCartaoPontoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.contratoLocaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -106,24 +107,25 @@
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // aruivosToolStripMenuItem
             // 
             this.aruivosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pessoasToolStripMenuItem});
+            this.pessoasToolStripMenuItem,
+            this.contratoLocaçãoToolStripMenuItem});
             this.aruivosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.aruivosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.aruivosToolStripMenuItem.Name = "aruivosToolStripMenuItem";
             this.aruivosToolStripMenuItem.Size = new System.Drawing.Size(75, 35);
             this.aruivosToolStripMenuItem.Text = "Arquivos";
-           
+            // 
             // pessoasToolStripMenuItem
             // 
             this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
-            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
             this.pessoasToolStripMenuItem.Text = "Pessoas";
             this.pessoasToolStripMenuItem.Click += new System.EventHandler(this.pessoasToolStripMenuItem_Click);
             // 
@@ -140,8 +142,9 @@
             // locaçãoToolStripMenuItem
             // 
             this.locaçãoToolStripMenuItem.Name = "locaçãoToolStripMenuItem";
-            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
             this.locaçãoToolStripMenuItem.Text = "Locação";
+            this.locaçãoToolStripMenuItem.Click += new System.EventHandler(this.locaçãoToolStripMenuItem_Click);
             // 
             // utilitariosToolStripMenuItem
             // 
@@ -183,6 +186,13 @@
             this.label1.Text = "Soluções";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // contratoLocaçãoToolStripMenuItem
+            // 
+            this.contratoLocaçãoToolStripMenuItem.Name = "contratoLocaçãoToolStripMenuItem";
+            this.contratoLocaçãoToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
+            this.contratoLocaçãoToolStripMenuItem.Text = "Contrato Locação";
+            this.contratoLocaçãoToolStripMenuItem.Click += new System.EventHandler(this.contratoLocaçãoToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -192,7 +202,7 @@
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.Name = "Form1";
-            this.Text = "Soluções";
+            this.Text = "Servitec";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -218,5 +228,6 @@
         private ToolStripMenuItem converterCartaoPontoToolStripMenuItem;
         private ToolStripMenuItem pessoasToolStripMenuItem;
         private ToolStripMenuItem locaçãoToolStripMenuItem;
+        private ToolStripMenuItem contratoLocaçãoToolStripMenuItem;
     }
 }

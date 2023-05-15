@@ -36,5 +36,18 @@ namespace SistemaServitec
             FormCadastroPessoa.StartPosition = FormStartPosition.CenterScreen;
             FormCadastroPessoa.Show ( );
         }
+
+        private void locaçãoToolStripMenuItem_Click ( object sender , EventArgs e )
+        {
+           
+        }
+
+        private void contratoLocaçãoToolStripMenuItem_Click ( object sender , EventArgs e )
+        {
+            FormContratoLocacao formContratoLocacao = new FormContratoLocacao();
+            formContratoLocacao.MdiParent = this;
+            formContratoLocacao.StartPosition = FormStartPosition.CenterScreen;
+            formContratoLocacao.Show ( );
+        }
     }
 }
