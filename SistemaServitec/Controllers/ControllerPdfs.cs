@@ -6,7 +6,7 @@ namespace SistemaServitec.Controllers
     internal class ControllerPdfs
     {
         public static string result;
-        public static bool PdfMerge ( string pdfdestino , string FolderPdfs )
+        public static string PdfMerge ( string pdfdestino , string FolderPdfs )
         {
 
             string[] pdfs = Directory.GetFiles(FolderPdfs,"*.pdf");
@@ -24,19 +24,17 @@ namespace SistemaServitec.Controllers
                             PdfPage page = origem.Pages[i];
                             destino.AddPage ( page );
                         }
-
                     }
                 }
                 destino.Save ( pdfdestino + "\\Mesclado.pdf" );
-               
                 result = "Imprimindo...";
-                return true;
+                return pdfdestino + "\\Mesclado.pdf";
             }
             catch ( Exception e )
             {
 
                 result = e.ToString ( );
-                return false;
+                return "";
             }
 
         }
