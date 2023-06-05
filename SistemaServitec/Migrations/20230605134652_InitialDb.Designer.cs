@@ -11,8 +11,8 @@ using SistemaServitec.Data;
 namespace SistemaServitec.Migrations
 {
     [DbContext(typeof(SistemaServitecDBContex))]
-    [Migration("20230513121426_InitialDB")]
-    partial class InitialDB
+    [Migration("20230605134652_InitialDb")]
+    partial class InitialDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,6 +116,89 @@ namespace SistemaServitec.Migrations
                     b.ToTable("Identitys");
                 });
 
+            modelBuilder.Entity("SistemaServitec.Models.LeaseContractModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Bairro")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CEP")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Cidade")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DataContrato")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DataFinal")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DataInicial")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Duracao")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DuracaoExtenso")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Endereco")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Estado")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Numero")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PersonLocadorId")
+                        .HasMaxLength(255)
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PersonLocatarioId")
+                        .HasMaxLength(255)
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("TipoDuracao")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TipoImovel")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Valor")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ValorExtenso")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonLocadorId");
+
+                    b.HasIndex("PersonLocatarioId");
+
+                    b.ToTable("Contracts");
+                });
+
             modelBuilder.Entity("SistemaServitec.Models.PersonModel", b =>
                 {
                     b.Property<int>("Id")
@@ -151,6 +234,32 @@ namespace SistemaServitec.Migrations
                     b.ToTable("Persons");
                 });
 
+            modelBuilder.Entity("SistemaServitec.Models.UserModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("SistemaServitec.Models.AddressModel", b =>
                 {
                     b.HasOne("SistemaServitec.Models.PersonModel", "Person")
@@ -169,6 +278,25 @@ namespace SistemaServitec.Migrations
                         .IsRequired();
 
                     b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("SistemaServitec.Models.LeaseContractModel", b =>
+                {
+                    b.HasOne("SistemaServitec.Models.PersonModel", "PersonLocador")
+                        .WithMany()
+                        .HasForeignKey("PersonLocadorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SistemaServitec.Models.PersonModel", "PersonLocatario")
+                        .WithMany()
+                        .HasForeignKey("PersonLocatarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PersonLocador");
+
+                    b.Navigation("PersonLocatario");
                 });
 
             modelBuilder.Entity("SistemaServitec.Models.PersonModel", b =>

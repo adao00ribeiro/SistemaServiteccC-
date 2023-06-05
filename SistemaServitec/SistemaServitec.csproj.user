@@ -16,6 +16,9 @@
     <Compile Update="FormListPerson.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormMesclarPdf.cs">
       <SubType>Form</SubType>
     </Compile>

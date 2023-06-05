@@ -12,9 +12,8 @@ namespace SistemaServitec
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize ( );
-            Form1 form =  new Form1 ( );
+            FormLogin form =  new FormLogin ( );
             form.StartPosition = FormStartPosition.CenterScreen;
-            form.WindowState = FormWindowState.Maximized;
             Application.Run ( form );
         }
 

@@ -5,7 +5,7 @@
 namespace SistemaServitec.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDB : Migration
+    public partial class InitialDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,6 +26,22 @@ namespace SistemaServitec.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Persons", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    UserName = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    Password = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    IsActive = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -53,6 +69,47 @@ namespace SistemaServitec.Migrations
                         column: x => x.PersonId,
                         principalTable: "Persons",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Contracts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PersonLocadorId = table.Column<int>(type: "INTEGER", maxLength: 255, nullable: false),
+                    PersonLocatarioId = table.Column<int>(type: "INTEGER", maxLength: 255, nullable: false),
+                    TipoImovel = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    Endereco = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    Numero = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    Bairro = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    Cidade = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    Estado = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    CEP = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    TipoDuracao = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    Duracao = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    DuracaoExtenso = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    DataInicial = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    DataFinal = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    Valor = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    ValorExtenso = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    DataContrato = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contracts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Contracts_Persons_PersonLocadorId",
+                        column: x => x.PersonLocadorId,
+                        principalTable: "Persons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Contracts_Persons_PersonLocatarioId",
+                        column: x => x.PersonLocatarioId,
+                        principalTable: "Persons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,6 +143,16 @@ namespace SistemaServitec.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Contracts_PersonLocadorId",
+                table: "Contracts",
+                column: "PersonLocadorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Contracts_PersonLocatarioId",
+                table: "Contracts",
+                column: "PersonLocatarioId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Identitys_PersonId",
                 table: "Identitys",
                 column: "PersonId",
@@ -99,7 +166,13 @@ namespace SistemaServitec.Migrations
                 name: "Addresss");
 
             migrationBuilder.DropTable(
+                name: "Contracts");
+
+            migrationBuilder.DropTable(
                 name: "Identitys");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Persons");

@@ -7,6 +7,9 @@ namespace SistemaServitec
         public Form1 ( )
         {
             InitializeComponent ( );
+
+
+
         }
         private void mesclarPdfsToolStripMenuItem_Click ( object sender , EventArgs e )
         {
@@ -49,5 +52,7 @@ namespace SistemaServitec
             formContratoLocacao.StartPosition = FormStartPosition.CenterScreen;
             formContratoLocacao.Show ( );
         }
+
+       
     }
 }

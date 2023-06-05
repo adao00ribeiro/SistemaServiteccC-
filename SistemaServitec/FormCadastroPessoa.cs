@@ -54,7 +54,7 @@ namespace SistemaServitec
         public FormCadastroPessoa ( )
         {   
             InitializeComponent ( );
-            contex = new SistemaServitecDBContex ( );
+            contex = new SistemaServitecDBContex ();
             repoPerson = new PersonRepository ( contex );
 
             DisableComponents ( this.Controls );
@@ -72,7 +72,6 @@ namespace SistemaServitec
 
                 MessageBox.Show (error.Message );
             }
-          
 
             //BUSCA NO BANCO 
 

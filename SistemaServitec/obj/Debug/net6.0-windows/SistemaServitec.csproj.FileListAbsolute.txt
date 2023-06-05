@@ -1,6 +1,5 @@
 D:\repos\SistemaServitec\SistemaServitec\bin\Debug\net6.0-windows\SistemaServitec.dll
 D:\repos\SistemaServitec\SistemaServitec\bin\Debug\net6.0-windows\SistemaServitec.exe
-D:\repos\SistemaServitec\SistemaServitec\bin\Debug\net6.0-windows\DB\Database.db
 D:\repos\SistemaServitec\SistemaServitec\bin\Debug\net6.0-windows\SistemaServitec.dll.config
 D:\repos\SistemaServitec\SistemaServitec\bin\Debug\net6.0-windows\SistemaServitec.deps.json
 D:\repos\SistemaServitec\SistemaServitec\bin\Debug\net6.0-windows\SistemaServitec.runtimeconfig.json
@@ -77,3 +76,5 @@ D:\repos\SistemaServitec\SistemaServitec\obj\Debug\net6.0-windows\SistemaServite
 D:\repos\SistemaServitec\SistemaServitec\bin\Debug\net6.0-windows\SistemaServitec.pdb
 D:\repos\SistemaServitec\SistemaServitec\obj\Debug\net6.0-windows\ref\SistemaServitec.dll
 D:\repos\SistemaServitec\SistemaServitec\obj\Debug\net6.0-windows\SistemaServitec.FormContratoLocacao.resources
+D:\repos\SistemaServitec\SistemaServitec\bin\Debug\net6.0-windows\DB\Database.db
+D:\repos\SistemaServitec\SistemaServitec\obj\Debug\net6.0-windows\SistemaServitec.FormLogin.resources
