@@ -49,6 +49,9 @@ namespace SistemaServitec.Controllers
                 return false;
             }
 
+            Globais.User = data.Result;
+
+
             Form1 form =   new Form1 ( );
             form.Visible = true;
             form.StartPosition = FormStartPosition.CenterScreen;

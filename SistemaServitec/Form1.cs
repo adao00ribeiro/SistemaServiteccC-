@@ -7,9 +7,7 @@ namespace SistemaServitec
         public Form1 ( )
         {
             InitializeComponent ( );
-
-
-
+            this.labelUser.Text = Globais.User.Name;
         }
         private void mesclarPdfsToolStripMenuItem_Click ( object sender , EventArgs e )
         {

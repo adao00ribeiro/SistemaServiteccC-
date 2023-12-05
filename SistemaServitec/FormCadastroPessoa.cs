@@ -63,7 +63,7 @@ namespace SistemaServitec
             DisableComponents ( tabPageInformacoesPessoais.Controls );
             try
             {
-                Task<PersonModel> data = repoPerson.TakeTheLast ( );
+                Task<PersonModel> data =  repoPerson.TakeTheLast ( );
                 data.Wait ( );
                 SetComponents ( data.Result );
             }
@@ -392,16 +392,35 @@ namespace SistemaServitec
 
         private void button8_Click ( object sender , EventArgs e )
         {
-            Task<PersonModel> data =repoPerson.TakeTheLast ( );
-            data.Wait ( );
-            SetComponents ( data.Result );
+            
+
+            try
+            {
+                Task<PersonModel> data =repoPerson.TakeTheLast ( );
+                data.Wait ( );
+                SetComponents ( data.Result );
+            }
+            catch ( Exception ex )
+            {
+                MessageBox.Show ( ex.Message.ToString ( ) );
+
+            }
         }
 
         private void button5_Click ( object sender , EventArgs e )
         {
-            Task<PersonModel> data =repoPerson.TakeTheFirst ( );
-            data.Wait ( );
-            SetComponents ( data.Result );
+            try
+            {
+                Task<PersonModel> data =repoPerson.TakeTheFirst ( );
+                data.Wait ( );
+                SetComponents ( data.Result );
+            }
+            catch ( Exception ex)
+            {
+                MessageBox.Show ( ex.Message.ToString ( ) );
+               
+            }
+           
         }
     }
 }

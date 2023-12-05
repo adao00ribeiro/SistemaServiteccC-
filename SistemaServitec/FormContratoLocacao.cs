@@ -67,20 +67,7 @@ namespace SistemaServitec
             IsBtnEditar = true;
         }
       
-        private void label1_Click ( object sender , EventArgs e )
-        {
-
-        }
-
-        private void button9_Click ( object sender , EventArgs e )
-        {
-
-        }
-
-        private void button1_Click ( object sender , EventArgs e )
-        {
-
-        }
+       
 
         private void btnNovo_Click ( object sender , EventArgs e )
         {
@@ -201,9 +188,32 @@ namespace SistemaServitec
             throw new NotImplementedException ( );
         }
 
-        private void FormContratoLocacao_Load ( object sender , EventArgs e )
+        private void btnGravar_Click ( object sender , EventArgs e )
         {
 
+        }
+       
+        public bool VerificaCampos ( )
+        {
+            foreach ( TextBox item in this.Controls.OfType<TextBox> ( ) )
+            {
+                if (String.IsNullOrEmpty(item.Text))
+                {
+                    item.Focus ( );
+                    return false;
+                }
+               
+            }
+            foreach ( ComboBox item in this.groupBox.Controls.OfType<ComboBox> ( ) )
+            {
+                if ( String.IsNullOrEmpty ( item.Text ) )
+                {
+                    item.Focus ( );
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

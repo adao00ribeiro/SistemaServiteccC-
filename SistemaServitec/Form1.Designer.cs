@@ -31,6 +31,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.controleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trocarSenhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,12 +51,11 @@
             this.mesclarPdfsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.converterCartaoPontoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,6 +88,38 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(795, 43);
             this.panel2.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Gray;
+            this.panel5.Controls.Add(this.labelUser);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(448, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(347, 43);
+            this.panel5.TabIndex = 1;
+            // 
+            // labelUser
+            // 
+            this.labelUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelUser.Location = new System.Drawing.Point(0, 0);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.labelUser.Size = new System.Drawing.Size(347, 43);
+            this.labelUser.TabIndex = 0;
+            this.labelUser.Text = "nome user";
+            this.labelUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelUser.UseCompatibleTextRendering = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.menuStrip1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(448, 43);
+            this.panel4.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -238,24 +272,6 @@
             this.label1.Text = "Soluções";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.menuStrip1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(448, 43);
-            this.panel4.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Gray;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(448, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(347, 43);
-            this.panel5.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -268,10 +284,11 @@
             this.Text = "Servitec";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -300,5 +317,6 @@
         private ToolStripMenuItem relatoriosToolStripMenuItem;
         private Panel panel5;
         private Panel panel4;
+        private Label labelUser;
     }
 }
