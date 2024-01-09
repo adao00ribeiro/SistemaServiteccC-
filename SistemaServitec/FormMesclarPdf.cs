@@ -15,8 +15,10 @@ namespace SistemaServitec
         {
             InitializeComponent ( );
             buttonMesclar.Enabled = false;
+           
             FolderOutput = Path.Combine ( AppDomain.CurrentDomain.BaseDirectory , "FolderOutput");
-     
+            Directory.CreateDirectory ( FolderOutput );
+
         }
         private void button1_Click ( object sender , EventArgs e )
         {
@@ -45,6 +47,7 @@ namespace SistemaServitec
         private void button2_Click ( object sender , EventArgs e )
         {
             Directory.Delete ( FolderOutput , true );
+
             using ( OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog ( ) )
             {
                 dialog.Filter = "Zip Rar Files |*.zip";

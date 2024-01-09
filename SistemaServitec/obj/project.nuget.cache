@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "g1CDDdGieqq1L91RaqcWtdeVpabVvMlw60kLWnvY57P29n7JPrfMMfX8L9TkjsNhd/3qUYei4vcg8aKOqdooQw==",
+  "dgSpecHash": "girLBFBZ3ezsbfbF0Vdzcm1FxlFH2o8nsT5Rpg3dUuVJdOwesI9/TKE5vB362Cg35MbMe+nYiB9jMUehaXeG1w==",
   "success": true,
   "projectFilePath": "D:\\repos\\SistemaServitec\\SistemaServitec\\SistemaServitec.csproj",
   "expectedPackageFiles": [
@@ -41,7 +41,6 @@
     "C:\\Users\\adao-\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
     "C:\\Users\\adao-\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
     "C:\\Users\\adao-\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\adao-\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\adao-\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\adao-\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
